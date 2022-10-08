@@ -32,7 +32,7 @@ class Product extends Equatable {
   static List<Product> products = [
     const Product(
       name: "Soft Drink #1",
-      category: 'Soft Drink',
+      category: 'Soft Drinks',
       imageUrl:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRerI-6Zcyi4y7PdU2T5q41rMQW09lfQYyuZw&usqp=CAU",
       price: 90,
@@ -42,7 +42,7 @@ class Product extends Equatable {
     ),
     const Product(
       name: "Soft Drink #2",
-      category: 'Soft Drink',
+      category: 'Soft Drinks',
       imageUrl:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaoLa3slZujq4oSLJJMBrb8eLTG76N08Xp4Q&usqp=CAU",
       price: 86,
@@ -52,7 +52,7 @@ class Product extends Equatable {
     ),
     const Product(
       name: "Soft Drink #3",
-      category: 'Soft Drink',
+      category: 'Soft Drinks',
       imageUrl:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT5Nytxb73-fZNdoMZNZp4aTGgnQA1q6xZJw&usqp=CAU",
       price: 96,
@@ -80,13 +80,13 @@ class Product extends Equatable {
       isTopRated: false,
     ),
     const Product(
-      name: "Soft Drink #1",
-      category: 'Soft Drink',
+      name: "KFC #1",
+      category: 'KFC',
       imageUrl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRerI-6Zcyi4y7PdU2T5q41rMQW09lfQYyuZw&usqp=CAU",
-      price: 90,
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiUZhSexsppoaA6VR5TvQ7r5rfUSeZpcGklg&usqp=CAU",
+      price: 199,
       isRecommended: false,
-      isPopular: false,
+      isPopular: true,
       isTopRated: true,
     )
   ];

@@ -1,4 +1,4 @@
-import 'package:deal_easy/config/app_router/new_app_router.dart';
+import 'package:deal_easy/config/app_router/app_router.dart';
 
 import 'package:deal_easy/config/theme/theme.dart';
 import 'package:deal_easy/screens/home/screen_home.dart';

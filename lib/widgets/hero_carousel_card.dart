@@ -7,7 +7,9 @@ class HeroCarouselCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (() {}),
+      onTap: (() {
+        Navigator.pushNamed(context, '/categories', arguments: category);
+      }),
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 25, horizontal: 5.0),
         child: ClipRRect(

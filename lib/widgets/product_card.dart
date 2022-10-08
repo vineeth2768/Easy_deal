@@ -1,20 +1,22 @@
 import 'package:deal_easy/models/product_model.dart';
 import 'package:flutter/material.dart';
 
-class ProductCardWidget extends StatelessWidget {
-  const ProductCardWidget({
+class ProductCard extends StatelessWidget {
+  const ProductCard({
     Key? key,
     required this.product,
+    this.widthFactor = 2.5,
   }) : super(key: key);
 
   final Product product;
+  final double? widthFactor;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         SizedBox(
-          width: MediaQuery.of(context).size.width / 2.5,
+          width: MediaQuery.of(context).size.width / widthFactor!,
           height: MediaQuery.of(context).size.height / 5,
           child: Image.network(
             product.imageUrl,
