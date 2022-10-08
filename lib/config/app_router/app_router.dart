@@ -1,11 +1,9 @@
 import 'dart:developer';
 
 import 'package:deal_easy/models/category_model.dart';
-import 'package:deal_easy/screens/cart/screen_cart.dart';
-import 'package:deal_easy/screens/category/screen_category.dart';
-import 'package:deal_easy/screens/home/screen_home.dart';
-import 'package:deal_easy/screens/user/screen_user.dart';
-import 'package:deal_easy/screens/wishlist/screen_wishlist.dart';
+import 'package:deal_easy/models/models.dart';
+
+import 'package:deal_easy/screens/screens.dart';
 
 import 'package:flutter/material.dart';
 
@@ -27,6 +25,8 @@ class AppRouter {
         return WishListScreen.route();
       case CategoryScreen.routeName:
         return CategoryScreen.route(category: settings.arguments as Category);
+      case ProductScreen.routeName:
+        return ProductScreen.route(product: settings.arguments as Product);
 
       default:
         return _errorRoute();

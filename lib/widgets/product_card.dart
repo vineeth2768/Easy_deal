@@ -13,131 +13,82 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        // Container(
-        //   decoration: BoxDecoration(borderRadius: BorderRadius.circular(25.0)),
-        // width: MediaQuery.of(context).size.width / widthFactor!,
-        // height: MediaQuery.of(context).size.height / 5,
-        //   child: Image.network(
-        //     product.imageUrl,
-        //     fit: BoxFit.cover,
-        //   ),
-        // ),
-        ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width / widthFactor!,
-            height: MediaQuery.of(context).size.height / 5,
-            child: Image.network(
-              product.imageUrl,
-              fit: BoxFit.cover,
+    return InkWell(
+      onTap: (() {
+        Navigator.pushNamed(
+          context,
+          '/product',
+          arguments: product,
+        );
+      }),
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width / widthFactor!,
+              height: MediaQuery.of(context).size.height / 5,
+              child: Image.network(
+                product.imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-        // Positioned(
-        //   top: 60,
-        //   child: Container(
-        //       // width: MediaQuery.of(context).size.width / 2.5 - 10,
-        //       // height: 60,
-        //       // decoration: BoxDecoration(color: Colors.black.withAlpha(50)),
-        //       ),
-        // ),
-
-        Positioned(
-          top: 110,
-          left: 10,
-          right: 10,
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.black,
-            ),
-            width: MediaQuery.of(context).size.width / 2.6 - 10,
-            height: MediaQuery.of(context).size.height / 15,
+          Positioned(
+            top: 110,
+            left: 10,
+            right: 10,
             child: Container(
-              width: MediaQuery.of(context).size.width / 2.5 - 10,
-              height: 70,
-              decoration: const BoxDecoration(color: Colors.black),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          product.name,
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline3!
-                              .copyWith(color: Colors.white),
-                        ),
-                        Text(
-                          "INR ${product.price}",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline4!
-                              .copyWith(color: Colors.white),
-                        )
-                      ],
-                    ),
-                    Expanded(
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.add_circle,
-                            color: Colors.white,
-                          )),
-                    )
-                  ],
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: Colors.black,
+              ),
+              width: MediaQuery.of(context).size.width / 2.6 - 10,
+              height: MediaQuery.of(context).size.height / 15,
+              child: Container(
+                width: MediaQuery.of(context).size.width / 2.5 - 10,
+                height: 70,
+                decoration: const BoxDecoration(color: Colors.black),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            product.name,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline3!
+                                .copyWith(color: Colors.white),
+                          ),
+                          Text(
+                            "INR ${product.price}",
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline4!
+                                .copyWith(color: Colors.white),
+                          )
+                        ],
+                      ),
+                      Expanded(
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.add_circle,
+                              color: Colors.white,
+                            )),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-        // child: Container(
-        //   width: MediaQuery.of(context).size.width / 2.5 - 10,
-        //   height: 70,
-        //   decoration: const BoxDecoration(color: Colors.black),
-        //   child: Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: Row(
-        //       children: [
-        //         Column(
-        //           mainAxisAlignment: MainAxisAlignment.center,
-        //           crossAxisAlignment: CrossAxisAlignment.start,
-        //           children: [
-        //             Text(
-        //               product.name,
-        //               style: Theme.of(context)
-        //                   .textTheme
-        //                   .headline3!
-        //                   .copyWith(color: Colors.white),
-        //             ),
-        //             Text(
-        //               "INR ${product.price}",
-        //               style: Theme.of(context)
-        //                   .textTheme
-        //                   .headline4!
-        //                   .copyWith(color: Colors.white),
-        //             )
-        //           ],
-        //         ),
-        //         Expanded(
-        //           child: IconButton(
-        //               onPressed: () {},
-        //               icon: const Icon(
-        //                 Icons.add_circle,
-        //                 color: Colors.white,
-        //               )),
-        //         )
-        //       ],
-        //     ),
-        //   ),
-        // ),
-      ],
+        ],
+      ),
     );
   }
 }
