@@ -7,6 +7,7 @@ class Product extends Equatable {
   final double price;
   final bool isRecommended;
   final bool isPopular;
+  final bool isTopRated;
 
   const Product({
     required this.name,
@@ -15,6 +16,7 @@ class Product extends Equatable {
     required this.price,
     required this.isRecommended,
     required this.isPopular,
+    required this.isTopRated,
   });
 
   @override
@@ -36,6 +38,7 @@ class Product extends Equatable {
       price: 90,
       isRecommended: true,
       isPopular: false,
+      isTopRated: false,
     ),
     const Product(
       name: "Soft Drink #2",
@@ -45,6 +48,7 @@ class Product extends Equatable {
       price: 86,
       isRecommended: false,
       isPopular: true,
+      isTopRated: false,
     ),
     const Product(
       name: "Soft Drink #3",
@@ -54,16 +58,17 @@ class Product extends Equatable {
       price: 96,
       isRecommended: true,
       isPopular: true,
+      isTopRated: true,
     ),
     const Product(
-      name: "Biriyani #1",
-      category: 'Biriyani',
-      imageUrl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwDdzrCv-nlon684B0jnKN_g_YMEI_vbL7pA&usqp=CAU",
-      price: 160,
-      isRecommended: true,
-      isPopular: false,
-    ),
+        name: "Biriyani #1",
+        category: 'Biriyani',
+        imageUrl:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwDdzrCv-nlon684B0jnKN_g_YMEI_vbL7pA&usqp=CAU",
+        price: 160,
+        isRecommended: true,
+        isPopular: false,
+        isTopRated: true),
     const Product(
       name: "Biriyani #2",
       category: 'Biriyani',
@@ -72,6 +77,7 @@ class Product extends Equatable {
       price: 120,
       isRecommended: false,
       isPopular: true,
+      isTopRated: false,
     ),
     const Product(
       name: "Soft Drink #1",
@@ -81,6 +87,7 @@ class Product extends Equatable {
       price: 90,
       isRecommended: false,
       isPopular: false,
+      isTopRated: true,
     )
   ];
 }

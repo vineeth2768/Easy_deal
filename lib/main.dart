@@ -1,6 +1,7 @@
-import 'package:deal_easy/config/app_router/app_router.dart';
-import 'package:deal_easy/config/app_router/routes.dart';
+import 'package:deal_easy/config/app_router/new_app_router.dart';
+
 import 'package:deal_easy/config/theme/theme.dart';
+import 'package:deal_easy/screens/home/screen_home.dart';
 
 import 'package:flutter/material.dart';
 
@@ -18,8 +19,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Deal Easy',
       theme: theme(),
-      initialRoute: routeRoot,
-      onGenerateRoute: RouteGenerator.generateRoutes,
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: HomeScreen.routeName,
     );
   }
 }
