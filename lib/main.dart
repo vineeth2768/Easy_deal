@@ -1,4 +1,7 @@
-import 'package:deal_easy/screens/screen_home.dart';
+import 'package:deal_easy/config/app_router/app_router.dart';
+import 'package:deal_easy/config/app_router/routes.dart';
+import 'package:deal_easy/config/theme/theme.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,11 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const ScreenHome(),
+      debugShowCheckedModeBanner: false,
+      title: 'Deal Easy',
+      theme: theme(),
+      initialRoute: routeRoot,
+      onGenerateRoute: RouteGenerator.generateRoutes,
     );
   }
 }
