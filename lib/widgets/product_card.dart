@@ -6,10 +6,13 @@ class ProductCard extends StatelessWidget {
     Key? key,
     required this.product,
     this.widthFactor = 2.5,
+    this.isWishList = false,
   }) : super(key: key);
 
   final Product product;
   final double? widthFactor;
+
+  final bool isWishList;
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +39,9 @@ class ProductCard extends StatelessWidget {
           ),
           Positioned(
             top: 110,
-            left: 10,
             right: 10,
+            left: 10,
+            // right: rightPostion,
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
@@ -80,7 +84,17 @@ class ProductCard extends StatelessWidget {
                               Icons.add_circle,
                               color: Colors.white,
                             )),
-                      )
+                      ),
+                      isWishList
+                          ? Expanded(
+                              child: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.delete,
+                                    color: Colors.white,
+                                  )),
+                            )
+                          : const SizedBox(),
                     ],
                   ),
                 ),

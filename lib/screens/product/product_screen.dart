@@ -1,10 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:deal_easy/blocs/wishlist/wishlist_bloc.dart';
 import 'package:deal_easy/config/theme/theme.dart';
 import 'package:deal_easy/models/models.dart';
 import 'package:deal_easy/widgets/custom_appbar.dart';
 
 import 'package:deal_easy/widgets/hero_carousel_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductScreen extends StatelessWidget {
   static const String routeName = '/product';
@@ -36,12 +38,24 @@ class ProductScreen extends StatelessWidget {
                     Icons.share,
                     color: Colors.white,
                   )),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.favorite,
-                    color: Colors.white,
-                  )),
+              BlocBuilder<WishlistBloc, WishlistState>(
+                builder: (context, state) {
+                  return IconButton(
+                      onPressed: () {
+                        context
+                            .read<WishlistBloc>()
+                            .add(AddWishlistProduct(product));
+
+                        const snackBar =
+                            SnackBar(content: Text('Added to your wishlist!'));
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      },
+                      icon: const Icon(
+                        Icons.favorite,
+                        color: Colors.white,
+                      ));
+                },
+              ),
               MaterialButton(
                 onPressed: () {},
                 color: Colors.white,

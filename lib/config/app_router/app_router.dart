@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:deal_easy/models/category_model.dart';
 import 'package:deal_easy/models/models.dart';
 
 import 'package:deal_easy/screens/screens.dart';
