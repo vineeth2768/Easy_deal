@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:deal_easy/blocs/wishlist/wishlist_bloc.dart';
-import 'package:deal_easy/config/theme/theme.dart';
+
 import 'package:deal_easy/models/models.dart';
 import 'package:deal_easy/widgets/custom_appbar.dart';
 
@@ -46,8 +46,10 @@ class ProductScreen extends StatelessWidget {
                             .read<WishlistBloc>()
                             .add(AddWishlistProduct(product));
 
-                        const snackBar =
-                            SnackBar(content: Text('Added to your wishlist!'));
+                        const snackBar = SnackBar(
+                          content: Text('Added to your wishlist!'),
+                          behavior: SnackBarBehavior.floating,
+                        );
                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       },
                       icon: const Icon(

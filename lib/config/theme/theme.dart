@@ -29,6 +29,11 @@ TextTheme textTheme() {
       fontSize: 10,
       color: Colors.black,
     ),
+    headline5: TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: 12,
+      color: Colors.black,
+    ),
     bodyText1: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 12,
