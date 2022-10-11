@@ -1,7 +1,8 @@
+import 'package:deal_easy/models/cart_model.dart';
 import 'package:deal_easy/models/models.dart';
 import 'package:deal_easy/widgets/cart_product_card.dart';
 import 'package:deal_easy/widgets/custom_appbar.dart';
-import 'package:deal_easy/widgets/custom_navigationbar.dart';
+
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatelessWidget {
@@ -52,7 +53,7 @@ class CartScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Add INR 50.0 for FREE Delivery",
+                      Cart().freedeliveryFeeString,
                       style: Theme.of(context).textTheme.headline5,
                     ),
                     MaterialButton(
@@ -72,9 +73,15 @@ class CartScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 10),
-                CartProductCard(product: Product.products[0]),
-                CartProductCard(product: Product.products[1]),
-                CartProductCard(product: Product.products[2]),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 1.8,
+                  child: ListView.builder(
+                    itemCount: Cart().products.length,
+                    itemBuilder: (context, index) {
+                      return CartProductCard(product: Cart().products[index]);
+                    },
+                  ),
+                ),
               ],
             ),
             Column(
@@ -99,7 +106,7 @@ class CartScreen extends StatelessWidget {
                                 .copyWith(color: Colors.black),
                           ),
                           Text(
-                            "₹ 95.00",
+                            "₹${Cart().subtotalString}",
                             style: Theme.of(context)
                                 .textTheme
                                 .headline3!
@@ -119,7 +126,7 @@ class CartScreen extends StatelessWidget {
                                 .copyWith(color: Colors.black),
                           ),
                           Text(
-                            "₹ 20.00",
+                            "₹${Cart().deliveryFeeString}",
                             style: Theme.of(context)
                                 .textTheme
                                 .headline5!
@@ -145,7 +152,7 @@ class CartScreen extends StatelessWidget {
                                     .copyWith(color: Colors.white),
                               ),
                               Text(
-                                "₹ 115.00",
+                                "₹ ${Cart().totalString}",
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline3!

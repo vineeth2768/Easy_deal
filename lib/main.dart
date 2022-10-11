@@ -1,5 +1,5 @@
 import 'package:deal_easy/blocs/wishlist/wishlist_bloc.dart';
-import 'package:deal_easy/config/app_router/app_router.dart';
+import 'package:deal_easy/config/routes/app_router.dart';
 
 import 'package:deal_easy/config/theme/theme.dart';
 import 'package:deal_easy/screens/home/screen_home.dart';

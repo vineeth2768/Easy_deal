@@ -1,4 +1,4 @@
-import 'package:deal_easy/config/app_router/routes.dart';
+import 'package:deal_easy/config/routes/routes.dart';
 
 import 'package:flutter/material.dart';
 
