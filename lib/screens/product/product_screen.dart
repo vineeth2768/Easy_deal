@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:deal_easy/blocs/cart/cart_bloc.dart';
 import 'package:deal_easy/blocs/wishlist/wishlist_bloc.dart';
 
 import 'package:deal_easy/models/models.dart';
@@ -58,16 +59,24 @@ class ProductScreen extends StatelessWidget {
                       ));
                 },
               ),
-              MaterialButton(
-                onPressed: () {},
-                color: Colors.white,
-                child: Text(
-                  "ADD TO CART",
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline3!
-                      .copyWith(color: Colors.black),
-                ),
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, state) {
+                  return MaterialButton(
+                    onPressed: () {
+                      context.read<CartBloc>().add(CartProductAdded(product));
+
+                      Navigator.pushNamed(context, '/cart');
+                    },
+                    color: Colors.white,
+                    child: Text(
+                      "ADD TO CART",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline3!
+                          .copyWith(color: Colors.black),
+                    ),
+                  );
+                },
               )
             ],
           ),
