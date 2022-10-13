@@ -4,6 +4,7 @@ import 'package:deal_easy/config/routes/app_router.dart';
 
 import 'package:deal_easy/config/theme/theme.dart';
 import 'package:deal_easy/screens/home/screen_home.dart';
+import 'package:deal_easy/screens/splash/screen_splash.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         title: 'Deal Easy',
         theme: theme(),
         onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: HomeScreen.routeName,
+        initialRoute: SplashScreen.routeName,
       ),
     );
   }

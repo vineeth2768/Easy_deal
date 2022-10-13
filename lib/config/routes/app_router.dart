@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:deal_easy/models/models.dart';
 
 import 'package:deal_easy/screens/screens.dart';
+import 'package:deal_easy/screens/splash/screen_splash.dart';
 
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,9 @@ class AppRouter {
         return HomeScreen.route();
       case HomeScreen.routeName:
         return HomeScreen.route();
+
+      case SplashScreen.routeName:
+        return SplashScreen.route();
       case CartScreen.routeName:
         return CartScreen.route();
       case UserScreen.routeName:
