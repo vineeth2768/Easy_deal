@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartProductCard extends StatelessWidget {
-  const CartProductCard({super.key, required this.product});
+  const CartProductCard({
+    super.key,
+    required this.product,
+    required this.quantity,
+  });
 
   final Product product;
+  final int quantity;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +59,7 @@ class CartProductCard extends StatelessWidget {
                     icon: const Icon(Icons.remove_circle),
                   ),
                   Text(
-                    "1",
+                    '$quantity',
                     style: Theme.of(context)
                         .textTheme
                         .headline5!
