@@ -3,13 +3,18 @@ import 'package:deal_easy/blocs/wishlist/wishlist_bloc.dart';
 import 'package:deal_easy/config/routes/app_router.dart';
 
 import 'package:deal_easy/config/theme/theme.dart';
-import 'package:deal_easy/screens/home/screen_home.dart';
+
 import 'package:deal_easy/screens/splash/screen_splash.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  //Bloc.observer = SimpleBlocObserver();
+
   runApp(const MyApp());
 }
 
