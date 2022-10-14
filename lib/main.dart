@@ -1,8 +1,13 @@
 import 'package:deal_easy/blocs/cart/cart_bloc.dart';
+import 'package:deal_easy/blocs/category/category_bloc.dart';
+import 'package:deal_easy/blocs/product/product_bloc.dart';
+import 'package:deal_easy/blocs/product/product_event.dart';
 import 'package:deal_easy/blocs/wishlist/wishlist_bloc.dart';
 import 'package:deal_easy/config/routes/app_router.dart';
 
 import 'package:deal_easy/config/theme/theme.dart';
+import 'package:deal_easy/repositeries/category/category_repositery.dart';
+import 'package:deal_easy/repositeries/product/product_repositery.dart';
 
 import 'package:deal_easy/screens/splash/screen_splash.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -28,6 +33,14 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => WishlistBloc()..add(StartWishlist())),
         BlocProvider(create: (_) => CartBloc()..add(CartStarted())),
+        BlocProvider(
+            create: (_) => CategoryBloc(
+                  categoryRepository: CategoryRepository(),
+                )..add(LoadCategories())),
+        BlocProvider(
+            create: (_) => ProductBloc(
+                  productRepository: ProductRepository(),
+                )..add(LoadProducts())),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
