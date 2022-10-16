@@ -3,6 +3,7 @@ import 'package:deal_easy/models/cart_model.dart';
 
 import 'package:deal_easy/widgets/cart_product_card.dart';
 import 'package:deal_easy/widgets/custom_appbar.dart';
+import 'package:deal_easy/widgets/order_summary.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +31,9 @@ class CartScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/checkout');
+                  },
                   color: Colors.white,
                   child: Text(
                     "GO TO CHECKOUT",
@@ -107,93 +110,94 @@ class CartScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Column(
-                      children: [
-                        const Divider(
-                          thickness: 2,
-                          color: Colors.black,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 30, vertical: 10),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "SUBTOTAL",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline3!
-                                        .copyWith(color: Colors.black),
-                                  ),
-                                  Text(
-                                    "₹${state.cart.subtotalString}",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline3!
-                                        .copyWith(color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 10),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "DELIVERY FEE",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline5!
-                                        .copyWith(color: Colors.black),
-                                  ),
-                                  Text(
-                                    "₹${state.cart.deliveryFeeString}",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline5!
-                                        .copyWith(color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 30),
-                              Container(
-                                height: 60,
-                                width: MediaQuery.of(context).size.width,
-                                color: Colors.black,
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 20),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        "GRAND TOTAL",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline3!
-                                            .copyWith(color: Colors.white),
-                                      ),
-                                      Text(
-                                        "₹ ${state.cart.totalString}",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline3!
-                                            .copyWith(color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                    const OrderSummary(),
+                    // Column(
+                    //   children: [
+                    //     const Divider(
+                    //       thickness: 2,
+                    //       color: Colors.black,
+                    //     ),
+                    //     Padding(
+                    //       padding: const EdgeInsets.symmetric(
+                    //           horizontal: 30, vertical: 10),
+                    //       child: Column(
+                    //         children: [
+                    //           Row(
+                    //             mainAxisAlignment:
+                    //                 MainAxisAlignment.spaceBetween,
+                    //             children: [
+                    //               Text(
+                    //                 "SUBTOTAL",
+                    //                 style: Theme.of(context)
+                    //                     .textTheme
+                    //                     .headline3!
+                    //                     .copyWith(color: Colors.black),
+                    //               ),
+                    //               Text(
+                    //                 "₹${state.cart.subtotalString}",
+                    //                 style: Theme.of(context)
+                    //                     .textTheme
+                    //                     .headline3!
+                    //                     .copyWith(color: Colors.black),
+                    //               ),
+                    //             ],
+                    //           ),
+                    //           const SizedBox(height: 10),
+                    //           Row(
+                    //             mainAxisAlignment:
+                    //                 MainAxisAlignment.spaceBetween,
+                    //             children: [
+                    //               Text(
+                    //                 "DELIVERY FEE",
+                    //                 style: Theme.of(context)
+                    //                     .textTheme
+                    //                     .headline5!
+                    //                     .copyWith(color: Colors.black),
+                    //               ),
+                    //               Text(
+                    //                 "₹${state.cart.deliveryFeeString}",
+                    //                 style: Theme.of(context)
+                    //                     .textTheme
+                    //                     .headline5!
+                    //                     .copyWith(color: Colors.black),
+                    //               ),
+                    //             ],
+                    //           ),
+                    //           const SizedBox(height: 30),
+                    //           Container(
+                    //             height: 60,
+                    //             width: MediaQuery.of(context).size.width,
+                    //             color: Colors.black,
+                    //             child: Padding(
+                    //               padding: const EdgeInsets.symmetric(
+                    //                   horizontal: 20),
+                    //               child: Row(
+                    //                 mainAxisAlignment:
+                    //                     MainAxisAlignment.spaceBetween,
+                    //                 children: [
+                    //                   Text(
+                    //                     "GRAND TOTAL",
+                    //                     style: Theme.of(context)
+                    //                         .textTheme
+                    //                         .headline3!
+                    //                         .copyWith(color: Colors.white),
+                    //                   ),
+                    //                   Text(
+                    //                     "₹ ${state.cart.totalString}",
+                    //                     style: Theme.of(context)
+                    //                         .textTheme
+                    //                         .headline3!
+                    //                         .copyWith(color: Colors.white),
+                    //                   ),
+                    //                 ],
+                    //               ),
+                    //             ),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
               );

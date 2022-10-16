@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:deal_easy/models/models.dart';
 
 import 'package:deal_easy/screens/screens.dart';
-import 'package:deal_easy/screens/splash/screen_splash.dart';
 
 import 'package:flutter/material.dart';
 
@@ -13,13 +12,11 @@ class AppRouter {
     //log("argument name :${settings.arguments}");
 
     switch (settings.name) {
-      case '/':
-        return HomeScreen.route();
+      case SplashScreen.routeName:
+        return SplashScreen.route();
       case HomeScreen.routeName:
         return HomeScreen.route();
 
-      case SplashScreen.routeName:
-        return SplashScreen.route();
       case CartScreen.routeName:
         return CartScreen.route();
       case UserScreen.routeName:
@@ -30,6 +27,8 @@ class AppRouter {
         return CategoryScreen.route(category: settings.arguments as Category);
       case ProductScreen.routeName:
         return ProductScreen.route(product: settings.arguments as Product);
+      case CheckoutScreen.routeName:
+        return CheckoutScreen.route();
 
       default:
         return _errorRoute();
