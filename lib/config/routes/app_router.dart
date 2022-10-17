@@ -12,6 +12,8 @@ class AppRouter {
     //log("argument name :${settings.arguments}");
 
     switch (settings.name) {
+      case '/':
+        return HomeScreen.route();
       case SplashScreen.routeName:
         return SplashScreen.route();
       case HomeScreen.routeName:

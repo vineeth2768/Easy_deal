@@ -1,4 +1,3 @@
-import 'package:deal_easy/widgets/custom_appbar.dart';
 import 'package:deal_easy/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -32,9 +31,7 @@ class CheckoutScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               MaterialButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/checkout');
-                },
+                onPressed: () {},
                 color: Colors.white,
                 child: Text(
                   "ORDER NOW",
@@ -50,30 +47,32 @@ class CheckoutScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "CUSTOMER INFORMATION",
-              style: Theme.of(context).textTheme.headline3,
-            ),
-            _buildTextFormField(emailController, context, 'Email'),
-            _buildTextFormField(nameController, context, 'Full Name'),
-            Text(
-              "DELIVERY INFORMATION",
-              style: Theme.of(context).textTheme.headline3,
-            ),
-            _buildTextFormField(adderssController, context, 'Adderss'),
-            _buildTextFormField(cityController, context, 'City'),
-            _buildTextFormField(countryController, context, 'Country'),
-            _buildTextFormField(zipcodeController, context, 'Zip Code'),
-            Text(
-              "ORDER SUMMERY",
-              style: Theme.of(context).textTheme.headline3,
-            ),
-            const OrderSummary(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "CUSTOMER INFORMATION",
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              _buildTextFormField(emailController, context, 'Email'),
+              _buildTextFormField(nameController, context, 'Full Name'),
+              Text(
+                "DELIVERY INFORMATION",
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              _buildTextFormField(adderssController, context, 'Adderss'),
+              _buildTextFormField(cityController, context, 'City'),
+              _buildTextFormField(countryController, context, 'Country'),
+              _buildTextFormField(zipcodeController, context, 'Zip Code'),
+              Text(
+                "ORDER SUMMERY",
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              const OrderSummary(),
+            ],
+          ),
         ),
       ),
     );
@@ -96,7 +95,7 @@ class CheckoutScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-              child: TextFormField(
+              child: TextField(
             controller: controller,
             decoration: const InputDecoration(
                 isDense: true,
