@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:deal_easy/blocs/wishlist/wishlist_bloc.dart';
 
 import 'package:deal_easy/widgets/custom_appbar.dart';

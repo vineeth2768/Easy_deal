@@ -1,5 +1,6 @@
 import 'package:deal_easy/blocs/cart/cart_bloc.dart';
 import 'package:deal_easy/blocs/category/category_bloc.dart';
+import 'package:deal_easy/blocs/checkout/checkout_bloc.dart';
 import 'package:deal_easy/blocs/product/product_bloc.dart';
 import 'package:deal_easy/blocs/product/product_event.dart';
 import 'package:deal_easy/blocs/wishlist/wishlist_bloc.dart';
@@ -7,9 +8,10 @@ import 'package:deal_easy/config/routes/app_router.dart';
 
 import 'package:deal_easy/config/theme/theme.dart';
 import 'package:deal_easy/repositeries/category/category_repositery.dart';
+import 'package:deal_easy/repositeries/checkout/checkout_repository.dart';
 import 'package:deal_easy/repositeries/product/product_repositery.dart';
+import 'package:deal_easy/screens/home/screen_home.dart';
 
-import 'package:deal_easy/screens/splash/screen_splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
@@ -41,13 +43,19 @@ class MyApp extends StatelessWidget {
             create: (_) => ProductBloc(
                   productRepository: ProductRepository(),
                 )..add(LoadProducts())),
+        BlocProvider(
+          create: (context) => CheckoutBloc(
+            cartBloc: context.read<CartBloc>(),
+            checkoutRepository: CheckoutRepository(),
+          ),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Deal Easy',
         theme: theme(),
         onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: SplashScreen.routeName,
+        initialRoute: HomeScreen.routeName,
         //initialRoute: CheckoutScreen.routeName,
       ),
     );
